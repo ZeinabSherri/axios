@@ -13,7 +13,7 @@ export default function Forms() {
       .then((res) => setUser(res.data));
   }, []);
 
-  function UpdateUsers(){
+  function UpdateUser(){
     let nextuser=1
 
   useEffect(() => {
@@ -42,20 +42,38 @@ export default function Forms() {
               <TextField variant="outlined"
                     label="Update user"
                    
-                    key={Users.username}
+                    key={User.username}
                     onChange={(e) =>
                         setUser({
                             name: e.target.value,
-                            catagory: Users.catagory,
+                            catagory: User.catagory,
                         })
                     }></TextField>
+              <Button
+                type="submit"
+                variant="outlined"
+                color="primary"
+                sx={{ height: "56px", width: "200px", margin: "25px" }}
+                onClick={() => {
+                    setUser([
+                        ...User,
+                        {
+                         
+                            name: User.username,
+                            email: User.email,
+                        },
+                    ]);
+                    setUser({ name: "", email: "" });
+                }}>
+                Submit
+            </Button>
 
             </Stack>
             
             <List>
             <div style={{ height: 600 }}>
-        {User.map((Users, i) => (
-          <li key={Users.username}>{Users.username}, {Users.email}</li>
+        {User.map((User, i) => (
+          <li key={User.username}>{User.id}  .  {User.username}, {User.email}</li>
         ))}
         
             </div>
