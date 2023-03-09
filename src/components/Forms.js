@@ -15,14 +15,14 @@ export default function Forms() {
 
   function UpdateUser(){
     let nextuser=1
-
+    const [Updateuser, setUpdateuser] = useState([]);
   useEffect(() => {
     axios
       .post("https://localhost:5001/api/Users", 
       {id: nextuser,
       name: "",
       email: "",})
-      .then((res) => setUser(res.data));
+      .then((res) => setUpdateuser(res.data));
   }, []);
 
 }
@@ -45,8 +45,8 @@ export default function Forms() {
                     key={User.username}
                     onChange={(e) =>
                         setUser({
-                            name: e.target.value,
-                            catagory: User.catagory,
+                            name: e.User.username,
+                            email: User.email,
                         })
                     }></TextField>
               <Button
@@ -55,12 +55,12 @@ export default function Forms() {
                 color="primary"
                 sx={{ height: "56px", width: "200px", margin: "25px" }}
                 onClick={() => {
-                    setUser([
-                        ...User,
+                    setUpdateuser([
+                        ...Updateuser,
                         {
                          
-                            name: User.username,
-                            email: User.email,
+                            name: Updateuser.username,
+                            email: Updateuser.email,
                         },
                     ]);
                     setUser({ name: "", email: "" });
