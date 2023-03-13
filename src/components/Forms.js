@@ -55,12 +55,12 @@ export default function Forms() {
                 color="primary"
                 sx={{ height: "56px", width: "200px", margin: "25px" }}
                 onClick={() => {
-                    setUpdateuser([
+                    setUser([
                         ...Updateuser,
                         {
                          
-                            name: Updateuser.username,
-                            email: Updateuser.email,
+                            name: User.username,
+                            email: User.email,
                         },
                     ]);
                     setUser({ name: "", email: "" });
