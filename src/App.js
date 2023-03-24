@@ -1,12 +1,19 @@
 
 import './App.css';
-import Forms from './components/Forms';
+import Add from './components/Add';
+import AddTags from './components/AddTags';
+import TagList from './components/TagList';
+
+
+
+
 
 
 function App() {
   return (
     <div>
-      <Forms/>
+      <AddTags/>
+      <TagList/>
     </div>
   );
 }
