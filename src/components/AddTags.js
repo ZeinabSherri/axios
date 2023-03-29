@@ -46,6 +46,10 @@ export default function AddTags() {
         color="primary"
         type="submit"
         sx={{ height: '56px', width: '200px', margin: '25px' }}
+        onClick={(event) => {
+          createTag(event.target.value);
+        }}
+        value={tagName}
       >
         Add Tag
       </Button>
